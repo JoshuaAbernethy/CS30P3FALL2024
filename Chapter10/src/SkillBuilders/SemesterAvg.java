@@ -21,7 +21,7 @@ import java.awt.event.MouseEvent;
 public class SemesterAvg {
 
 	private JFrame frame;
-	private JTextField SemesterInput_2_1;
+	//private JTextField SemesterInput_2_1;
 	private JTextField SemesterInput_2;
 	private JTextField SemesterInput_3;
 	private JTextField SemesterInput_1;
@@ -126,6 +126,9 @@ public class SemesterAvg {
 				String GR1 = SemesterInput_1.getText();
 				String GR2 = SemesterInput_2.getText();
 				String GR3 = SemesterInput_3.getText();
+				
+				avgGrade = (Double.parseDouble(GR1) + Double.parseDouble(GR2) + Double.parseDouble(GR3))/3;
+				DispAVG.setText(Double.toString(avgGrade));
 				
 				
 			}
