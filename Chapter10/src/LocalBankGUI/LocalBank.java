@@ -1,4 +1,4 @@
-package Masterys;
+package LocalBankGUI;
 
 import java.awt.EventQueue;
 
@@ -24,7 +24,7 @@ public class LocalBank {
 	private JTextField txtLastName;
 	private JTextField txtBalance;
 	
-	Banks easySave = new Bank();
+	Bank easySave = new Bank();
 
 	/**
 	 * Launch the application.
@@ -152,7 +152,7 @@ public class LocalBank {
 				
 			}
 		});
-		bankActivities.setToolTipText("\"Deposite\"");
+		bankActivities.setToolTipText("");
 		bankActivities.setBounds(43, 11, 367, 22);
 		panel.add(bankActivities);
 		
