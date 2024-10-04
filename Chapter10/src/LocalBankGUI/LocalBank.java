@@ -12,8 +12,12 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.text.NumberFormat;
 import java.awt.event.ActionEvent;
+import Masterys.Account;
+import Masterys.Bank;
 
 public class LocalBank {
 
@@ -62,6 +66,12 @@ public class LocalBank {
 		panel.setLayout(null);
 		
 		AcctNum = new JTextField();
+		AcctNum.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+	AcctNum.setText(null);
+}
+		});
 		AcctNum.setForeground(Color.BLACK);
 		AcctNum.setText("Account Number:");
 		AcctNum.setBounds(43, 44, 367, 20);
@@ -100,6 +110,7 @@ public class LocalBank {
 		JComboBox bankActivities = new JComboBox();
 		
 		JButton ActionButton = new JButton("Complete Transaction");
+		
 		ActionButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -108,27 +119,27 @@ public class LocalBank {
 				//Continue this series of if else statements for everything in your combo box (have to make an array first by making bank file in other window.
 				if(bankActivities.getSelectedItem().equals("Deposite") ) 
 				{
-					amount = amt.getText();
+					amount = EntAm.getText();
 					message = easySave.transaction(1, AcctNum.getText(), Double.parseDouble(amount));
 				}
 				else if(bankActivities.getSelectedItem().equals("Withdrawl")) 
 				{
-					amount = amt.getText();
+					amount = EntAm.getText();
 					message = easySave.transaction(2, AcctNum.getText(), Double.parseDouble(amount));
 				}
 				else if(bankActivities.getSelectedItem().equals("CheckBalances")) 
 				{
-					amount = amt.getText();
+					amount = EntAm.getText();
 					message = easySave.transaction(3, AcctNum.getText(), Double.parseDouble(amount));
 				}
 				else if (bankActivities.getSelectedItem().equals("AddAcount")) 
 				{
-					amount = begBalance.getText();
+					amount = txtBalance.getText();
 					//For the line below, you missed out on some class coding. Ask where to code the fName and lName variables
 					message = easySave.transaction(fName.getText(), lName.getText(), Double.parseDouble(amount));
 					DispAcctInfo.setText("New Account ID: " + message);
 				}
-				else if (bankActivities.getSelectedItem().equals("RemoveAcount")) 
+				else if (bankActivities.getSelectedItem().equals("RemoveAccount")) 
 				{
 					//This method has been complete
 				}
@@ -147,9 +158,24 @@ public class LocalBank {
 				}
 				else if (bankActivities.getSelectedItem().equals("withdrawal")) 
 				{
-					
+					AcctNum.setForeground(Color.red);
+					EntAm.setForeground(Color.red);
 				}
-				
+				else if  (bankActivities.getSelectedItem().equals("CheckBalances"))
+				{
+					AcctNum.setForeground(Color.red);
+					EntAm.setForeground(Color.red);
+				}
+				else if  (bankActivities.getSelectedItem().equals("AddAccount"))
+				{
+					AcctNum.setForeground(Color.red);
+					EntAm.setForeground(Color.red);
+				}
+				else if  (bankActivities.getSelectedItem().equals("ReviewAccount"))
+				{
+					AcctNum.setForeground(Color.red);
+					EntAm.setForeground(Color.red);
+				}
 			}
 		});
 		bankActivities.setToolTipText("");

@@ -1,16 +1,23 @@
 package LocalBankGUI;
 
 import java.util.ArrayList;
+import java.util.List; // This.
+import java.lang.reflect.Array;
+
+import LocalBankGUI.Account;
 
 public class Bank 
 {
 	private ArrayList accounts;
-		
 	
 	
 	public Bank() //Constructor Method
 	{
 		accounts = new ArrayList();
+		
+		class 
+		
+		List<String> Accounts = new ArrayList<>();
 	}
 	
 
@@ -37,10 +44,10 @@ public class Bank
 	 * Returns a message.
 	 */
 	public String deleteAccount(String acctID) {
-		int acctIndex;
+		int acctIndex = 0;
 		Account acctToMatch;
 		
-	 	acctToMatch = new Account(acctID);
+	 	acctToMatch = new Account(acctIndex, acctID, acctID);
 	 	acctIndex = accounts.indexOf(acctToMatch);		//retrieve location of account
 	 	if (acctIndex > -1) {
 	 		accounts.remove(acctIndex);					//remove account
@@ -62,7 +69,7 @@ public class Bank
 		int acctIndex;
 		Account acctToMatch, acct;
 		
-	 	acctToMatch = new Account(acctID);
+	 	acctToMatch = new Account(amt, acctID, acctID);
 	 	acctIndex = accounts.indexOf(acctToMatch);		//retrieve location of account
 	 	if (acctIndex > -1) {
 	 		acct = (Account)accounts.get(acctIndex);	//retrieve object to modify

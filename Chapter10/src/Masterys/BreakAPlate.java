@@ -17,6 +17,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JProgressBar;
+import java.awt.Label;
+import javax.swing.SwingConstants;
 
 public class BreakAPlate {
 
@@ -124,8 +127,16 @@ public class BreakAPlate {
 		panel.add(school);
 		
 		JLabel imgd = new JLabel("");
-		imgd.setBounds(389, 245, 189, 158);
+		imgd.setHorizontalAlignment(SwingConstants.CENTER);
+		imgd.setIcon(new ImageIcon("C:\\Users\\27346001\\Downloads\\plates.gif"));
+		imgd.setBounds(287, 245, 291, 158);
 		panel.add(imgd);
+		
+		new ImageIcon("C:\\Users\\27346001\\Downloads\\plates.gif");
+		new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_all_broken.gif");
+		new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_two_broken.gif");
+		new ImageIcon("C:\\Users\\27346001\\Downloads\\tiger_plush.gif");
+		new ImageIcon("C:\\Users\\27346001\\Downloads\\sticker.gif");
 		
 		JButton btnNewButton = new JButton("SUBMIT");
 		btnNewButton.addActionListener(new ActionListener() 
@@ -185,7 +196,7 @@ public class BreakAPlate {
 		});
 		btnNewButton.setForeground(Color.BLUE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnNewButton.setBounds(409, 34, 123, 200);
+		btnNewButton.setBounds(409, 39, 123, 200);
 		panel.add(btnNewButton);
 		
 		
