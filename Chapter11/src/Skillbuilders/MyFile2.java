@@ -8,7 +8,7 @@ public class MyFile2 {
 		Sanner input = new Scanner(System.in);
 		String response;
 
-		textFile = new File("
+		textFile = new File("../Chapter11b/src/SkillBuilders/test1.Txt
 
 		//obtain file name from the user
 				System.out.println("Please enter a file name:");

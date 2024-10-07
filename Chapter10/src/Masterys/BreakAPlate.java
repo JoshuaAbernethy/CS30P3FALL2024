@@ -24,8 +24,6 @@ import javax.swing.SwingConstants;
 public class BreakAPlate {
 
 	private JFrame frame;
-	private JTextField Fn;
-	private JTextField Ln;
 
 	/**
 	 * Launch the application.
@@ -55,10 +53,12 @@ public class BreakAPlate {
 	 */
 	private void initialize() 
 	{
-		ImageIcon cres = new ImageIcon("../Chapter10/src/ClassDemos/chhs.png");
-		ImageIcon pears = new ImageIcon("../Chapter10/src/ClassDemos/pearson.png");
-		ImageIcon west = new ImageIcon("../Chapter10/src/ClassDemos/western.png");
-		
+		String ImageID = "plates";
+		ImageIcon plates = new ImageIcon("C:\\Users\\27346001\\Downloads\\" + ImageID + ".gif");
+		ImageIcon allplatesbroken = new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_all_broken.gif");
+		ImageIcon twobrokenplates = new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_two_broken.gif");
+		ImageIcon tiger = new ImageIcon("C:\\Users\\27346001\\Downloads\\tiger_plush.gif");
+		ImageIcon sticker = new ImageIcon("C:\\Users\\27346001\\Downloads\\sticker.gif");
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 614, 476);
@@ -70,139 +70,54 @@ public class BreakAPlate {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		Fn = new JTextField();
-		Fn.addMouseListener(new MouseAdapter() 
-		{
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
+		JLabel plateimgs = new JLabel("");
+		plateimgs.setHorizontalAlignment(SwingConstants.CENTER);
+		plateimgs.setIcon(new ImageIcon("C:\\Users\\27346001\\Downloads\\plates.gif"));
+		plateimgs.setBounds(139, 0, 291, 158);
+		panel.add(plateimgs);
+		
+		JLabel prizeimg = new JLabel("Placeholder");
+		prizeimg.setBounds(221, 364, 139, 14);
+		panel.add(prizeimg);
+		
+		
+		JButton playButton = new JButton("Play");
+		playButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Test");
+				int brokenPlates = 0;
 				
-				Fn.setText("");
-				
-				
-			}
-		});
-		Fn.setForeground(Color.DARK_GRAY);
-		Fn.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Fn.setText("First Name");
-		Fn.setBounds(29, 48, 159, 34);
-		panel.add(Fn);
-		Fn.setColumns(10);
-		
-		Ln = new JTextField();
-		Ln.setForeground(Color.DARK_GRAY);
-		Ln.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		Ln.setText("Last Name");
-		Ln.addMouseListener(new MouseAdapter() 
-		{
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
-				Ln.setText("");
-				
-			}
-		});
-		Ln.setColumns(10);
-		Ln.setBounds(240, 48, 159, 34);
-		panel.add(Ln);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setForeground(Color.RED);
-		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Select Grade:", "10", "11", "12"}));
-		comboBox.setBounds(32, 120, 156, 39);
-		panel.add(comboBox);
-		
-		
-		JLabel disp = new JLabel("");
-		disp.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		disp.setBounds(25, 196, 374, 68);
-		panel.add(disp);
-		
-		JComboBox school = new JComboBox();
-		school.setForeground(Color.RED);
-		school.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		school.setModel(new DefaultComboBoxModel(new String[] {"Select School:", "Crescent", "Pearson", "Western"}));
-		school.setBounds(198, 120, 169, 39);
-		panel.add(school);
-		
-		JLabel imgd = new JLabel("");
-		imgd.setHorizontalAlignment(SwingConstants.CENTER);
-		imgd.setIcon(new ImageIcon("C:\\Users\\27346001\\Downloads\\plates.gif"));
-		imgd.setBounds(287, 245, 291, 158);
-		panel.add(imgd);
-		
-		new ImageIcon("C:\\Users\\27346001\\Downloads\\plates.gif");
-		new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_all_broken.gif");
-		new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_two_broken.gif");
-		new ImageIcon("C:\\Users\\27346001\\Downloads\\tiger_plush.gif");
-		new ImageIcon("C:\\Users\\27346001\\Downloads\\sticker.gif");
-		
-		JButton btnNewButton = new JButton("SUBMIT");
-		btnNewButton.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				String grade = " ";
-				String sch = " ";
-				
-				String firstN = Fn.getText();
-				String lastN = Ln.getText();
-				
-				if(comboBox.getSelectedItem().equals("10"))
+				for (int i = 0; i < 3; i++) 
 				{
-					grade = "10";
-				}
-				else if(comboBox.getSelectedItem().equals("11"))
-				{
-					grade = "11";
-				}
-				else
-				{
-					grade = "12";
-				}
-				
-				if(school.getSelectedItem().equals("Crescent"))
-				{
-					sch = "Crescent";
-					imgd.setIcon(cres);
+					int RandomBrokenChance = (int) ((int) 1 * Math.random());
 					
+					if (RandomBrokenChance == 1) 
+					{
+						brokenPlates++;
+					}
 				}
-				else if(school.getSelectedItem().equals("Pearson"))
+				
+				
+				if (brokenPlates == 3) 
 				{
-					sch = "Pearson";
-					imgd.setIcon(pears);
+					prizeimg.equals(tiger);
 				}
-				else
+				else 
 				{
-					sch = "Western";
-					imgd.setIcon(west);
+					playButton.equals("play again");
+					prizeimg.equals(sticker);
 				}
-				
-				
-				
-				
-				
-				
-				disp.setText(firstN + " " +
-							   	lastN + " is in grade: "+
-								 grade + " "+
-								 "and goes to "+ sch
-								);
-				
-				
-				
 			}
 		});
-		btnNewButton.setForeground(Color.BLUE);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnNewButton.setBounds(409, 39, 123, 200);
-		panel.add(btnNewButton);
+		playButton.setForeground(Color.BLUE);
+		playButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+		playButton.setBounds(183, 152, 196, 143);
+		panel.add(playButton);
 		
-		
-		
-		
-		
-		
+		playButton.setForeground(Color.BLUE);
+		playButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+		playButton.setBounds(183, 152, 196, 143);
+		panel.add(playButton);
+
 	}
 }
