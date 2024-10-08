@@ -20,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import java.awt.Label;
 import javax.swing.SwingConstants;
+import java.math.*;
+import java.lang.*;
 
 public class BreakAPlate {
 
@@ -53,13 +55,6 @@ public class BreakAPlate {
 	 */
 	private void initialize() 
 	{
-		String ImageID = "plates";
-		ImageIcon plates = new ImageIcon("C:\\Users\\27346001\\Downloads\\" + ImageID + ".gif");
-		ImageIcon allplatesbroken = new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_all_broken.gif");
-		ImageIcon twobrokenplates = new ImageIcon("C:\\Users\\27346001\\Downloads\\plates_two_broken.gif");
-		ImageIcon tiger = new ImageIcon("C:\\Users\\27346001\\Downloads\\tiger_plush.gif");
-		ImageIcon sticker = new ImageIcon("C:\\Users\\27346001\\Downloads\\sticker.gif");
-		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 614, 476);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,20 +71,30 @@ public class BreakAPlate {
 		plateimgs.setBounds(139, 0, 291, 158);
 		panel.add(plateimgs);
 		
-		JLabel prizeimg = new JLabel("Placeholder");
-		prizeimg.setBounds(221, 364, 139, 14);
+		JLabel prizeimg = new JLabel("");
+		prizeimg.setBounds(217, 302, 139, 105);
 		panel.add(prizeimg);
 		
+		changeImage(plateimgs, "plates");
 		
 		JButton playButton = new JButton("Play");
 		playButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Test");
 				int brokenPlates = 0;
 				
+			// for (int i = 0; i < 3; i++) 
+				//{
+					//if (i == 3) {
+					//	prizeimg.equals(tiger);
+					//}
+				//}
+
+				
+				System.out.println("");
 				for (int i = 0; i < 3; i++) 
 				{
-					int RandomBrokenChance = (int) ((int) 1 * Math.random());
+					int RandomBrokenChance = (int) Math.round(Math.random());
+					System.out.println("Random Number: " + RandomBrokenChance);
 					
 					if (RandomBrokenChance == 1) 
 					{
@@ -100,12 +105,13 @@ public class BreakAPlate {
 				
 				if (brokenPlates == 3) 
 				{
-					prizeimg.equals(tiger);
+					changeImage(plateimgs, "plates_all_broken");
+					changeImage(prizeimg, "tiger_plush");
 				}
 				else 
 				{
-					playButton.equals("play again");
-					prizeimg.equals(sticker);
+					changeImage(plateimgs, "plates_two_broken");
+					changeImage(prizeimg, "sticker");
 				}
 			}
 		});
@@ -119,5 +125,11 @@ public class BreakAPlate {
 		playButton.setBounds(183, 152, 196, 143);
 		panel.add(playButton);
 
+	}
+	
+	public static void changeImage(JLabel lable, String image) // plates, plates_all_broken, plates_two_broken, tiger_plush, sticker
+	{
+		ImageIcon change = new ImageIcon("C:\\Users\\27346001\\Downloads\\" + image + ".gif");
+		lable.setIcon(change);
 	}
 }
