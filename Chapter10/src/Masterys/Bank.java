@@ -2,15 +2,17 @@ package Masterys;
 
 import java.util.ArrayList;
 
+import LocalBankGUI.*;
+
 public class Bank 
 {
-	private ArrayList accounts;
+	private ArrayList<Account> accounts;
 		
 	
 	
 	public Bank() //Constructor Method
 	{
-		accounts = new ArrayList();
+		accounts = new ArrayList<Account>();
 	}
 	
 
@@ -58,19 +60,24 @@ public class Bank
 	 * post: A transaction has occurred for an existing account.
 	 * Returns updated account info.
 	 */
-	public String transaction(int transCode, String acctID, double amt) {
+	public String transaction(int transCode, String acctID, double amt) 
+	{
 		int acctIndex;
 		Account acctToMatch, acct;
 		
 	 	acctToMatch = new Account(acctID);
 	 	acctIndex = accounts.indexOf(acctToMatch);		//retrieve location of account
-	 	if (acctIndex > -1) {
+	 	if (acctIndex > -1) 
+	 	{
 	 		acct = (Account)accounts.get(acctIndex);	//retrieve object to modify
-	 		if (transCode == 1) {
+	 		if (transCode == 1) 
+	 		{
 	 			acct.deposit(amt);
 	 			accounts.set(acctIndex, acct);			//replace object with updated object
 	 			return(acct.toString());
-	 		} else if (transCode == 2) {
+	 		} 
+	 		else if (transCode == 2) 
+	 		{
 	 			acct.withdrawal(amt);
 	 			accounts.set(acctIndex, acct);			//replace object with updated object
 	 			return(acct.toString());
@@ -93,10 +100,14 @@ public class Bank
 		
 	 	acctToMatch = new Account(acctID);
 	 	acctIndex = accounts.indexOf(acctToMatch);		//retrieve location of account
-	 	if (acctIndex > -1) {
+	 	
+	 	if (acctIndex > -1) 
+	 	{
 	 		acct = (Account)accounts.get(acctIndex);	//retrieve object to display
 	 		return(acct.toString());
-	 	} else {
+	 	} 
+	 	else 
+	 	{
 	 		return("Account does not exist.");
 	 	}
 	}

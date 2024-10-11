@@ -15,9 +15,12 @@ public class Bank
 	{
 		accounts = new ArrayList();
 		
-		class 
+		class F 
+		{
+			String testString = "";
+		}
 		
-		List<String> Accounts = new ArrayList<>();
+		List<String> accounts = new ArrayList<>();
 	}
 	
 
@@ -71,13 +74,16 @@ public class Bank
 		
 	 	acctToMatch = new Account(amt, acctID, acctID);
 	 	acctIndex = accounts.indexOf(acctToMatch);		//retrieve location of account
-	 	if (acctIndex > -1) {
+	 	if (acctIndex > -1) 
+	 	{
 	 		acct = (Account)accounts.get(acctIndex);	//retrieve object to modify
-	 		if (transCode == 1) {
+	 		if (transCode == 1) 
+	 		{
 	 			acct.deposit(amt);
 	 			accounts.set(acctIndex, acct);			//replace object with updated object
 	 			return(acct.toString());
-	 		} else if (transCode == 2) {
+	 		} 
+	 		else if (transCode == 2) {
 	 			acct.withdrawal(amt);
 	 			accounts.set(acctIndex, acct);			//replace object with updated object
 	 			return(acct.toString());
@@ -100,10 +106,13 @@ public class Bank
 		
 	 	acctToMatch = new Account(acctID);
 	 	acctIndex = accounts.indexOf(acctToMatch);		//retrieve location of account
-	 	if (acctIndex > -1) {
+	 	if (acctIndex > -1) 
+	 	{
 	 		acct = (Account)accounts.get(acctIndex);	//retrieve object to display
 	 		return(acct.toString());
-	 	} else {
+	 	} 
+	 	else 
+	 	{
 	 		return("Account does not exist.");
 	 	}
 	}

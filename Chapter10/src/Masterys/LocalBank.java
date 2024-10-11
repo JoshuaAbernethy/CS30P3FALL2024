@@ -9,6 +9,9 @@ import java.awt.Color;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+
+import LocalBankGUI.Customer;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -24,7 +27,7 @@ public class LocalBank {
 	private JTextField txtLastName;
 	private JTextField txtBalance;
 	
-	Banks easySave = new Bank();
+	Bank easySave = new Bank();
 
 	/**
 	 * Launch the application.
@@ -108,24 +111,24 @@ public class LocalBank {
 				//Continue this series of if else statements for everything in your combo box (have to make an array first by making bank file in other window.
 				if(bankActivities.getSelectedItem().equals("Deposite") ) 
 				{
-					amount = amt.getText();
+					amount = EntAm.getText();
 					message = easySave.transaction(1, AcctNum.getText(), Double.parseDouble(amount));
 				}
 				else if(bankActivities.getSelectedItem().equals("Withdrawl")) 
 				{
-					amount = amt.getText();
+					amount = EntAm.getText();
 					message = easySave.transaction(2, AcctNum.getText(), Double.parseDouble(amount));
 				}
 				else if(bankActivities.getSelectedItem().equals("CheckBalances")) 
 				{
-					amount = amt.getText();
+					amount = EntAm.getText();
 					message = easySave.transaction(3, AcctNum.getText(), Double.parseDouble(amount));
 				}
 				else if (bankActivities.getSelectedItem().equals("AddAcount")) 
 				{
-					amount = begBalance.getText();
+					amount = txtBalance.getText();
 					//For the line below, you missed out on some class coding. Ask where to code the fName and lName variables
-					message = easySave.transaction(fName.getText(), lName.getText(), Double.parseDouble(amount));
+					message = easySave.transaction(1, txtFirstName.getText() + txtLastName.getText(), Double.parseDouble(amount));
 					DispAcctInfo.setText("New Account ID: " + message);
 				}
 				else if (bankActivities.getSelectedItem().equals("RemoveAcount")) 

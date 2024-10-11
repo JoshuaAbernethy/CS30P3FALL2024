@@ -9,11 +9,6 @@ public class Account
 	private String acctID;
 		
 	
-	public static void Test() 
-	{
-		System.out.println("Test");
-	}
-	
 	/**
 	 * constructor
 	 * pre: none
