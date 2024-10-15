@@ -25,6 +25,16 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class LocalBank {
+	
+	/*
+	 * 1. When Complete Trans is pressed
+	 * Output the transaction
+	 * 
+	 * Check for what type it is
+	 * pass it in a function
+	 * 
+	 * Create functions for changing account amount.
+	 */
 
 	private JFrame frame;
 	private JTextField AcctNum;
@@ -32,8 +42,6 @@ public class LocalBank {
 	private JTextField txtFirstName;
 	private JTextField txtLastName;
 	private JTextField txtBalance;
-	
-	Bank easySave = new Bank();
 
 	/**
 	 * Launch the application.
@@ -72,77 +80,38 @@ public class LocalBank {
 		panel.setLayout(null);
 		
 		AcctNum = new JTextField();
-		
 		AcctNum.setText("Account Number:");
-		String AcctNumText = AcctNum.getText();
+		setUpTextField(AcctNum);
 		
 		AcctNum.setForeground(Color.BLACK);
 		AcctNum.setBounds(67, 62, 367, 20);
 		AcctNum.setColumns(10);
 		panel.add(AcctNum);
-		
-		AcctNum.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) 
-			{
-				if (AcctNum.getText().equals(AcctNumText)) 
-				{
-					AcctNum.setText("");
-				}
-			}
-			@Override
-			public void focusLost(FocusEvent e) 
-			{
-				if (AcctNum.getText().equals("")) 
-				{
-					AcctNum.setText(AcctNumText);
-				}
-			}
-		});
-		AcctNum.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) 
-			{
-				boolean Valid = false;
-				for (int i = 0; i == 9; i++) 
-				{
-					if (e.getKeyChar() == i) 
-					{
-						Valid = true;
-					}
-				}
-				
-				if (Valid) 
-				{
-					System.out.println("Valid input");
-				}
-				else 
-				{
-					e.consume();
-				}
-			}
-		});
-		
+	
 		EntAm = new JTextField();
 		EntAm.setText("Enter Amount:");
+		setUpTextField(EntAm);
 		EntAm.setBounds(67, 93, 367, 20);
 		panel.add(EntAm);
 		EntAm.setColumns(10);
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setText("First Name:");
+		setUpTextField(txtFirstName);
 		txtFirstName.setBounds(67, 124, 367, 20);
 		panel.add(txtFirstName);
 		txtFirstName.setColumns(10);
 		
 		txtLastName = new JTextField();
 		txtLastName.setText("Last Name:");
+		setUpTextField(txtLastName);
 		txtLastName.setColumns(10);
 		txtLastName.setBounds(67, 155, 367, 20);
 		panel.add(txtLastName);
 		
 		txtBalance = new JTextField();
 		txtBalance.setText("Biggining Balance:");
+		setUpTextField(txtBalance);
 		txtBalance.setColumns(10);
 		txtBalance.setBounds(67, 186, 367, 20);
 		panel.add(txtBalance);
@@ -161,64 +130,46 @@ public class LocalBank {
         bankActivities.addItem("CheckBalances");
         bankActivities.addItem("AddAcount");
         bankActivities.addItem("RemoveAccount");
-		
-		Account NewLocalCodeFile = new Account("Test String");
-		
-		NewLocalCodeFile.deposit(0);
-		
+
 		JButton ActionButton = new JButton("Complete Transaction");
 		
 		ActionButton.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) 
 			{
 				//double BankTotal = 0;
-				String monAmount, message = null; 
+				String removedAcctNum = AcctNum.getText().substring(getTextFieldText(AcctNum).length(), AcctNum.getText().length());
+				String removedEntAm = EntAm.getText().substring(getTextFieldText(EntAm).length(), EntAm.getText().length());
+				String removedtxtFirstName = txtFirstName.getText().substring(getTextFieldText(txtFirstName).length(), txtFirstName.getText().length());
+				String removedtxtLastName = txtLastName.getText().substring(getTextFieldText(txtLastName).length(), txtLastName.getText().length());
 	
 				//Continue this series of if else statements for everything in your combo box (have to make an array first by making bank file in other window.
-				if(bankActivities.getSelectedItem().equals("Deposit") ) 
-				{
-					System.out.println("Test | Deposite");
-					monAmount = EntAm.getText().substring("Enter Amount:".length(), EntAm.getText().length());
-					
-					message = easySave.transaction(1, AcctNum.getText(), Double.parseDouble(monAmount));
-				}
-				else if(bankActivities.getSelectedItem().equals("Withdraw")) 
-				{
-					System.out.println("Test | Withdrawl");
-					monAmount = EntAm.getText().substring(0, "Enter Amount:".length());
-					message = easySave.transaction(2, AcctNum.getText(), Double.parseDouble(monAmount));
-				}
-				else if(bankActivities.getSelectedItem().equals("CheckBalances")) 
-				{
-					System.out.println("Test | CheckBalances");
-					monAmount = EntAm.getText().substring(0, "Enter Amount:".length());
-					message = easySave.transaction(3, AcctNum.getText(), Double.parseDouble(monAmount));
-				}
-				else if (bankActivities.getSelectedItem().equals("AddAcount")) 
+				
+				if (bankActivities.getSelectedItem().equals("AddAcount")) 
 				{
 					System.out.println("Test | AddAcount");
-					monAmount = txtBalance.getText();
 					//For the line below, you missed out on some class coding. Ask where to code the fName and lName variables
-					message = easySave.transaction(1, txtFirstName.getText() + txtLastName.getText(), Double.parseDouble(monAmount));
-					DispAcctInfo.setText("New Account ID: " + message);
+
+					Account.setUpAccount(Integer.parseInt(removedAcctNum), Double.parseDouble(removedEntAm), removedtxtFirstName, removedtxtLastName);
+					
+					System.out.println("New Account Name: " + Account.getAccount(Integer.parseInt(removedAcctNum)).FirstName + " " + Account.getAccount(Integer.parseInt(removedAcctNum)).LastName);
+					return;
 				}
 				else if (bankActivities.getSelectedItem().equals("RemoveAccount")) 
 				{
 					//This method has been complete
+					Account.removeAccount(Integer.parseInt(removedAcctNum));
+					System.out.println("Removed Account");
+					return;
 				}
 				
-				else if (ActionButton.equals("Complete Transaction")) 
-				{
-					DispAcctInfo.setText(message);
-				}
+				Bank.ChangeBalance(Integer.parseInt(removedAcctNum), bankActivities, Double.parseDouble(EntAm.getText()));
 			}
 		});
 		ActionButton.setBounds(181, 247, 146, 23);
 		panel.add(ActionButton);
 		
 		bankActivities.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+			public void actionPerformed(ActionEvent e) {	
 				AcctNum.setForeground(Color.BLACK);
 				EntAm.setForeground(Color.BLACK);
 				txtFirstName.setForeground(Color.BLACK);
@@ -284,5 +235,39 @@ public class LocalBank {
 		//accountString += cust.toString();
 		//accountString += "Current baslance is" + money.format(balance)
 		//return(accountString);
+	}
+	
+	static class TextFieldSetup 
+	{
+		JTextField SelectedField;
+		String OrginalText;
+		
+		TextFieldSetup(JTextField SelectedField) 
+		{
+			this.SelectedField = SelectedField;
+			
+			OrginalText = this.SelectedField.getText();
+		}
+	}
+	
+	private static ArrayList<TextFieldSetup> AllTextFields = new ArrayList<TextFieldSetup>(); // Create an ArrayList object
+	
+	public static void setUpTextField(JTextField TextField) 
+	{
+		TextFieldSetup NewTextField = new TextFieldSetup(TextField);
+		AllTextFields.add(NewTextField);
+	}
+	
+	public static String getTextFieldText(JTextField TextField) 
+	{
+		for (int i = 0; i <= AllTextFields.size(); i++) 
+		{
+			if (AllTextFields.get(i).SelectedField == TextField) 
+			{
+				return AllTextFields.get(i).OrginalText;
+			}
+		}
+		
+		return null;
 	}
 }

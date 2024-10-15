@@ -1,112 +1,67 @@
 package LocalBankGUI;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+
+import LocalBankGUI.LocalBank.TextFieldSetup;
 
 public class Account 
 {
 	
-	private double balance;
-	private Customer cust;
-	private String acctID;
+	public static class NewAccount 
+	{
+		int AccountId = 0;
+		double Balance = 0;
+		String FirstName = "";
+		String LastName = "";
 		
-	
-	/**
-	 * constructor
-	 * pre: none
-	 * post: An account has been created. Balance and 
-	 * customer data has been initialized with parameters.
-	 */
-	public Account(double bal, String fName, String lName) {
-		balance = bal;
-		cust = new Customer(fName, lName);
-		acctID = fName.substring(0,1) + lName;
+		NewAccount(int AccountId2, double Balance2, String FirstName2, String LastName2) 
+		{
+			this.AccountId = AccountId2;
+			this.Balance = Balance2;
+			this.FirstName = FirstName2;
+			this.LastName = LastName2;
+		}
 	}
 	
-
-	/**
-	 * constructor
-	 * pre: none
-	 * post: An empty account has been created with the specified account ID.
-	 */
-	public Account(String ID) {
-		balance = 0;
-		cust = new Customer("", "");
-		acctID = ID;
-	}
-
-
-	/** 
-	 * Returns the account ID.
-	 * pre: none
-	 * post: The account ID has been returned.
-	 */
-	public String getID() {
-	 	return(acctID);
-	}
-
-
-	/** 
-	 * Returns the current balance.
-	 * pre: none
-	 * post: The account balance has been returned.
-	 */
-	public double getBalance() {
-	 	return(balance);
-	}
-
-
-	/** 
-	 * A deposit is made to the account.
-	 * pre: none
-	 * post: The balance has been increased by the amount of the deposit.
-	 */
-	public void deposit(double amt) {
-	 	balance += amt;
-	}
-
+	private static ArrayList<NewAccount> Accounts = new ArrayList<NewAccount>(); // Create an ArrayList object
 	
-	/** 
-	 * A withdrawal is made from the account if there is enough money.
-	 * pre: none
-	 * post: The balance has been decreased by the amount withdrawn.
-	 */
-	public void withdrawal(double amt) {
-	 	if (amt <= balance) {
-	 		balance -= amt;
-	 	} else {
-	 		System.out.println("Not enough money in account.");
-	 	}
+	public static void setUpAccount(int AccountId, double Balance, String FirstName, String LastName) 
+	{
+		NewAccount AccountSetup = new NewAccount(AccountId, Balance, LastName, LastName);
+		Accounts.add(AccountSetup);
 	}
 	
-	
-	/** 
-	 * Returns a true when objects have matching account ids.
-	 * pre: none
-	 * post: true has been returned when the objects are equal,
-	 * false returned otherwise.
-	 */
-	public boolean equals(Object acct) {
-		Account testAcct = (Account)acct;
-		if (acctID.equals(testAcct.acctID)) {
-				return(true);
-			} else {
-				return(false);
+	public static NewAccount getAccount(int AccountId) 
+	{
+		for (int i = 0; i <= Accounts.size(); i++) 
+		{
+			if (AccountId == Accounts.get(i).AccountId) 
+			{
+				return Accounts.get(i);
 			}
+		}
+		
+		return null;
 	}
-
-
-	/** 
-	 * Returns a String that represents the Account object.
-	 * pre: none
-	 * post: A string representing the Account object has 
-	 * been returned.
-	 */
+	
+	public static void removeAccount(int AccountId) 
+	{
+		for (int i = 0; i <= Accounts.size(); i++) 
+		{
+			if (AccountId == Accounts.get(i).AccountId) 
+			{
+				Accounts.remove(i);
+			}
+		}
+	}
+	
 	public String toString() 
 	{
 		String accountString;
 		NumberFormat money = NumberFormat.getCurrencyInstance();
 
-		accountString = acctID + " ";	//changed for Chapter 11 Exer 1
-		accountString += cust.toString();
+		//accountString = acctID + " ";	//changed for Chapter 11 Exer 1
+		//accountString += cust.toString();
 		accountString += "Current balance is " + money.format(balance);
 	 	return(accountString);
 	}
