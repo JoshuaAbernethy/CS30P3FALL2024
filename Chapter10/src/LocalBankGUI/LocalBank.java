@@ -148,6 +148,11 @@ public class LocalBank {
 				{
 					//System.out.println("Test | AddAcount");
 					//For the line below, you missed out on some class coding. Ask where to code the fName and lName variables
+					
+					if (removedEntAm.isEmpty()) 
+					{
+						removedEntAm = "0";
+					}
 
 					Account.setUpAccount(Integer.parseInt(removedAcctNum), Double.parseDouble(removedEntAm), removedtxtFirstName, removedtxtLastName);
 					
@@ -167,6 +172,16 @@ public class LocalBank {
 					
 					Account.removeAccount(Integer.parseInt(removedAcctNum));
 					return;
+				}
+				
+				if (removedAcctNum.isEmpty()) 
+				{
+					removedAcctNum = "0";
+				}
+				
+				if (removedEntAm.isEmpty()) 
+				{
+					removedEntAm = "0";
 				}
 				
 				Bank.ChangeBalance(Integer.parseInt(removedAcctNum), bankActivities, Double.parseDouble(removedEntAm));

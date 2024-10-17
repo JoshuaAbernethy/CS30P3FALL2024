@@ -6,7 +6,6 @@ import LocalBankGUI.LocalBank.TextFieldSetup;
 
 public class Account 
 {
-	
 	public static class NewAccount 
 	{
 		int AccountId = 0;
@@ -14,12 +13,12 @@ public class Account
 		String FirstName = "";
 		String LastName = "";
 		
-		NewAccount(int AccountId2, double Balance2, String FirstName2, String LastName2) 
+		NewAccount(int AccountId, double Balance, String FirstName, String LastName) 
 		{
-			this.AccountId = AccountId2;
-			this.Balance = Balance2;
-			this.FirstName = FirstName2;
-			this.LastName = LastName2;
+			this.AccountId = AccountId;
+			this.Balance = Balance;
+			this.FirstName = FirstName;
+			this.LastName = LastName;
 		}
 	}
 	

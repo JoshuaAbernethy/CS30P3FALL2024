@@ -80,6 +80,7 @@ public class BreakAPlate {
 		JButton playButton = new JButton("Play");
 		playButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				int brokenPlates = 0;
 				
 			// for (int i = 0; i < 3; i++) 
