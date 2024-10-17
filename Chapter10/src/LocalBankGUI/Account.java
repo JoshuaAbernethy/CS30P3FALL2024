@@ -29,6 +29,8 @@ public class Account
 	{
 		NewAccount AccountSetup = new NewAccount(AccountId, Balance, LastName, LastName);
 		Accounts.add(AccountSetup);
+		
+		LocalBank.UpdateDispAcctInfo();
 	}
 	
 	public static NewAccount getAccount(int AccountId) 
@@ -41,6 +43,7 @@ public class Account
 			}
 		}
 		
+		System.err.println("No account found");
 		return null;
 	}
 	
@@ -54,16 +57,4 @@ public class Account
 			}
 		}
 	}
-	
-	public String toString() 
-	{
-		String accountString;
-		NumberFormat money = NumberFormat.getCurrencyInstance();
-
-		//accountString = acctID + " ";	//changed for Chapter 11 Exer 1
-		//accountString += cust.toString();
-		accountString += "Current balance is " + money.format(balance);
-	 	return(accountString);
-	}
-
 }

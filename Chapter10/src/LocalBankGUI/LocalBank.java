@@ -37,11 +37,12 @@ public class LocalBank {
 	 */
 
 	private JFrame frame;
-	private JTextField AcctNum;
+	private static JTextField AcctNum;
 	private JTextField EntAm;
 	private JTextField txtFirstName;
 	private JTextField txtLastName;
 	private JTextField txtBalance;
+	private static JLabel DispAcctInfo = new JLabel("Balance: ?");
 
 	/**
 	 * Launch the application.
@@ -70,7 +71,7 @@ public class LocalBank {
 	 * Initialize the contents of the frame.
 	 */
 	@SuppressWarnings("unchecked")
-	private void initialize() {
+	public void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 494, 320);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,7 +81,7 @@ public class LocalBank {
 		panel.setLayout(null);
 		
 		AcctNum = new JTextField();
-		AcctNum.setText("Account Number:");
+		AcctNum.setText("Account Number: ");
 		setUpTextField(AcctNum);
 		
 		AcctNum.setForeground(Color.BLACK);
@@ -89,35 +90,34 @@ public class LocalBank {
 		panel.add(AcctNum);
 	
 		EntAm = new JTextField();
-		EntAm.setText("Enter Amount:");
+		EntAm.setText("Enter Amount: ");
 		setUpTextField(EntAm);
 		EntAm.setBounds(67, 93, 367, 20);
 		panel.add(EntAm);
 		EntAm.setColumns(10);
 		
 		txtFirstName = new JTextField();
-		txtFirstName.setText("First Name:");
+		txtFirstName.setText("First Name: ");
 		setUpTextField(txtFirstName);
 		txtFirstName.setBounds(67, 124, 367, 20);
 		panel.add(txtFirstName);
 		txtFirstName.setColumns(10);
-		
+
 		txtLastName = new JTextField();
-		txtLastName.setText("Last Name:");
+		txtLastName.setText("Last Name: ");
 		setUpTextField(txtLastName);
 		txtLastName.setColumns(10);
 		txtLastName.setBounds(67, 155, 367, 20);
 		panel.add(txtLastName);
-		
+
 		txtBalance = new JTextField();
-		txtBalance.setText("Biggining Balance:");
+		txtBalance.setText("Biggining Balance: ");
 		setUpTextField(txtBalance);
 		txtBalance.setColumns(10);
 		txtBalance.setBounds(67, 186, 367, 20);
 		panel.add(txtBalance);
 		
-		JLabel DispAcctInfo = new JLabel("");
-		DispAcctInfo.setBounds(43, 203, 367, 14);
+		DispAcctInfo.setBounds(67, 222, 367, 14);
 		panel.add(DispAcctInfo);
 		
 		//declares combo box. The rest of its properties are below.
@@ -146,7 +146,7 @@ public class LocalBank {
 				
 				if (bankActivities.getSelectedItem().equals("AddAcount")) 
 				{
-					System.out.println("Test | AddAcount");
+					//System.out.println("Test | AddAcount");
 					//For the line below, you missed out on some class coding. Ask where to code the fName and lName variables
 
 					Account.setUpAccount(Integer.parseInt(removedAcctNum), Double.parseDouble(removedEntAm), removedtxtFirstName, removedtxtLastName);
@@ -157,12 +157,19 @@ public class LocalBank {
 				else if (bankActivities.getSelectedItem().equals("RemoveAccount")) 
 				{
 					//This method has been complete
+					Account.NewAccount HasAccount = Account.getAccount(Integer.parseInt(removedAcctNum));
+					
+					if (HasAccount == null) 
+					{
+						System.err.println("No account with the id: [" + removedAcctNum + "]");
+						return;
+					}
+					
 					Account.removeAccount(Integer.parseInt(removedAcctNum));
-					System.out.println("Removed Account");
 					return;
 				}
 				
-				Bank.ChangeBalance(Integer.parseInt(removedAcctNum), bankActivities, Double.parseDouble(EntAm.getText()));
+				Bank.ChangeBalance(Integer.parseInt(removedAcctNum), bankActivities, Double.parseDouble(removedEntAm));
 			}
 		});
 		ActionButton.setBounds(181, 247, 146, 23);
@@ -172,31 +179,35 @@ public class LocalBank {
 			public void actionPerformed(ActionEvent e) {	
 				AcctNum.setForeground(Color.BLACK);
 				EntAm.setForeground(Color.BLACK);
-				txtFirstName.setForeground(Color.BLACK);
+//				txtFirstName.setForeground(Color.BLACK);
 				
-				if (bankActivities.getSelectedItem().equals("Deposit")) {
-					AcctNum.setForeground(Color.red);
-					EntAm.setForeground(Color.red);
+				if (bankActivities.getSelectedItem().equals("Deposit")) 
+				{
+						AcctNum.setForeground(Color.red);
+						EntAm.setForeground(Color.red);
 				}
 				else if (bankActivities.getSelectedItem().equals("Withdraw")) 
 				{
-					AcctNum.setForeground(Color.red);
-					EntAm.setForeground(Color.red);
+						AcctNum.setForeground(Color.red);
+						EntAm.setForeground(Color.red);
+
 				}
 				else if  (bankActivities.getSelectedItem().equals("CheckBalances"))
 				{
-					AcctNum.setForeground(Color.red);
-					txtFirstName.setForeground(Color.red);
+						AcctNum.setForeground(Color.red);	
+						txtFirstName.setForeground(Color.red);
 				}
 				else if  (bankActivities.getSelectedItem().equals("AddAcount"))
 				{
-					AcctNum.setForeground(Color.red);
-					EntAm.setForeground(Color.red);
+						AcctNum.setForeground(Color.red);
+						txtLastName.setForeground(Color.red);
+						txtFirstName.setForeground(Color.red);
 				}
 				else if  (bankActivities.getSelectedItem().equals("RemoveAccount"))
 				{
-					AcctNum.setForeground(Color.red);
-					EntAm.setForeground(Color.red);
+						AcctNum.setForeground(Color.red);
+						EntAm.setForeground(Color.red);
+						txtFirstName.setForeground(Color.red);
 				}
 				
 				if (!bankActivities.getSelectedItem().equals("Select")) 
@@ -204,6 +215,8 @@ public class LocalBank {
 					bankActivities.removeItem("Select");
 				}
 			}
+			
+			
 		});
 		bankActivities.setToolTipText("");
 		bankActivities.setBounds(67, 29, 367, 22);
@@ -235,6 +248,14 @@ public class LocalBank {
 		//accountString += cust.toString();
 		//accountString += "Current baslance is" + money.format(balance)
 		//return(accountString);
+	}
+	
+	public static void UpdateDispAcctInfo() 
+	{
+		String removedAcctNum = AcctNum.getText().substring(getTextFieldText(AcctNum).length(), AcctNum.getText().length());
+		double Balance = Account.getAccount(Integer.parseInt(removedAcctNum)).Balance;
+		String StrBalance = "" + Balance;
+		DispAcctInfo.setText("Balance: " + StrBalance.format(StrBalance));
 	}
 	
 	static class TextFieldSetup 
