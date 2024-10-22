@@ -1,10 +1,1 @@
-//AAA is just a name. Underneath the "names" are their scores.
-
-AAA
-89
-BBB
-65
-CCC
-73
-DDD
-53
+Test
