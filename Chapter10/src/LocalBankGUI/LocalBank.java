@@ -155,8 +155,6 @@ public class LocalBank {
 					}
 
 					Account.setUpAccount(Integer.parseInt(removedAcctNum), Double.parseDouble(removedEntAm), removedtxtFirstName, removedtxtLastName);
-					
-					System.out.println("New Account Name: " + Account.getAccount(Integer.parseInt(removedAcctNum)).FirstName + " " + Account.getAccount(Integer.parseInt(removedAcctNum)).LastName);
 					return;
 				}
 				else if (bankActivities.getSelectedItem().equals("RemoveAccount")) 
@@ -166,7 +164,6 @@ public class LocalBank {
 					
 					if (HasAccount == null) 
 					{
-						System.err.println("No account with the id: [" + removedAcctNum + "]");
 						return;
 					}
 					
