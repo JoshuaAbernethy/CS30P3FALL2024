@@ -10,7 +10,7 @@ public class StatsP1 {
 	{
 		File textFile;
 
-		textFile = new File("../Chapter11b/src/SkillBuilders/test1.Txt"
+		textFile = new File("../Chapter11b/src/SkillBuilders/test1.Txt");
 		FileReader in;
 		BufferedReader readFile;
 		String StuName, score;
