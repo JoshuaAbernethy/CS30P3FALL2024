@@ -9,12 +9,27 @@ public class wordCount {
 		File textFile;
 		
 		textFile = new File("../Chapter11/src/Masterys/source.txt");
+		
+		FileWriter out;
+		BufferedWriter writeFile;
+		
+		try
+		{
+			out = new FileWriter(textFile);
+			writeFile = new BufferedWriter(out);
+			System.out.println("Please enter whatever you would like: ");
+			String userIn = input.nextln();
+			writeFile.write(userIn);
+		}
+		
+		//FileWriter textFileWrite = new FileWriter(textFile);
+		//BufferedWriter buffWrite = new BufferedWriter(textFileWrite);
+				
 		try 
 		{
-			//FileWriter textFileWrite = new FileWriter(textFile);
-			//BufferedWriter buffWrite = new BufferedWriter(textFileWrite);
 			
 			int WordCount = 0;
+			int lengthWords = 0;
 			Scanner textFileRead = new Scanner(textFile);
 			
 			while (textFileRead.hasNext()) 
@@ -39,7 +54,7 @@ public class wordCount {
 				
 				boolean OnAWord = false;
 				
-				String validChars = "qwertyuiopasdfghjklzxcvbnm \n";
+				String validChars = "qwertyuioplkjhgfdsazxcvbnm \n";
 				
 				for (Character Char : Word.toCharArray()) 
 				{
@@ -49,6 +64,7 @@ public class wordCount {
 					{
 						if (Char == Valid) 
 						{
+							lengthWords++;
 							isValid = true;
 							break;
 						}
@@ -75,6 +91,7 @@ public class wordCount {
 			
 			System.out.println("Word Count: " + WordCount);
 			
+			System.out.println("Lenth of words is a total of" + lengthWords + "characters!");
 			//textFileRead.close();
 		} 
 		catch (FileNotFoundException e) 
@@ -88,9 +105,5 @@ public class wordCount {
 		
 	}
 		
-	public static void wordcntandavglngth(String filePath) 
-	{
-		int numwords = 0;
-		int totalLength = 0;
-	}
+
 }
