@@ -10,17 +10,6 @@ public class wordCount {
 		
 		textFile = new File("../Chapter11/src/Masterys/source.txt");
 		
-		FileWriter out;
-		BufferedWriter writeFile;
-		
-		try
-		{
-			out = new FileWriter(textFile);
-			writeFile = new BufferedWriter(out);
-			System.out.println("Please enter whatever you would like: ");
-			String userIn = input.nextln();
-			writeFile.write(userIn);
-		}
 		
 		//FileWriter textFileWrite = new FileWriter(textFile);
 		//BufferedWriter buffWrite = new BufferedWriter(textFileWrite);
@@ -54,7 +43,7 @@ public class wordCount {
 				
 				boolean OnAWord = false;
 				
-				String validChars = "qwertyuioplkjhgfdsazxcvbnm \n";
+				String validChars = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM \n";
 				
 				for (Character Char : Word.toCharArray()) 
 				{
@@ -91,7 +80,7 @@ public class wordCount {
 			
 			System.out.println("Word Count: " + WordCount);
 			
-			System.out.println("Lenth of words is a total of" + lengthWords + "characters!");
+			System.out.println("Lenth of words is a total of " + lengthWords + " characters!");
 			//textFileRead.close();
 		} 
 		catch (FileNotFoundException e) 
