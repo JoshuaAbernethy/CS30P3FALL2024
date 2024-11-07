@@ -45,9 +45,91 @@ public class FindAndReplace {
 		
 		if(decideYorN.equals("Y"))
 		{
-			System.out.println("Please enter another word or phrase");
-			replacePhrase = input.next();
+			//Search word/phrase to replace
+			while (true)
+			{
+				System.out.println("Please enter what part of your word or phrase you would like to replace: ");
+				String searchPhrase = input.next();
+				
+				if(searchPhrase == userPhrase/*enter the part of the code that the searchPhrase has to match with*/)
+				{
+					System.out.println("Please enter another word or phrase");
+					replacePhrase = input.next();
+					break;
+				}
+				else if(searchPhrase != userPhrase/*enter the part of the code that the searchPhrase has to match with*/)
+				{
+					System.out.println("Not a word or phrase in the file, please try again.");
+				}
+			}
 			break;
+			
+			try 
+			{
+				Scanner textFileRead = new Scanner(textFile);
+				
+				while (textFileRead.hasNext()) 
+				{
+					String Word = textFileRead.next();
+					int Spaces = 0;
+					
+					Word = Word.replace('-', ' ');
+					
+					for (Character Char2 : Word.toCharArray()) 
+					{
+						if (Char2 == ' ') 
+						{
+							Spaces++;
+						}
+					}
+					
+					System.out.println(Spaces);
+					
+					//Word = Word.replace('-', ' ');
+					System.out.print("word: " + Word + " | ");
+					
+					//boolean OnAWord = false;
+					
+					String validChars = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM \n";
+					
+					//for (Character Char : Word.toCharArray()) 
+				//{
+						//boolean isValid = false;
+						
+						for (Character Valid : validChars.toCharArray()) 
+						{
+							if (Char == Valid) 
+							{
+								isValid = true;
+								break;
+							}
+						}
+						
+						
+						if (Char == ' ' || Char == '\n')
+						{
+							OnAWord = false;
+						}
+
+						if (isValid) 
+						{
+							//I Edited this one
+							if (OnAWord == userPhrase) 
+							{
+								OnAWord = true;
+								writeFile.write(replacePhrase);
+								
+							}
+						}
+					}
+					
+					System.out.println(WordCount);
+			
+			}catch (IOexception e)
+			{
+				System.out.println("Th3ere was an issue");
+			}
+			
 		}
 		else if (decideYorN.equals("N"))
 		{
