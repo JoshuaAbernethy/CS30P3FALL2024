@@ -24,7 +24,7 @@ public class MyFile2 {
 		if(textFile.exists())
 		{
 			System.out.println("File exists.");
-			System.out.println("Would you like" + "to(K)keep or (D)elete the file");
+			System.out.println("Would you like" + "to(K)keep or (D)elete the file :" + textFile.getAbsolutePath());
 			response = input.next();
 			response = response.toLowerCase();
 			
