@@ -1,14 +1,16 @@
 package Masterys;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class FindAndReplace {
 
-	public static void main(String[] args) 
+	public static void main(String[] args) throws IOException 
 	{
 		File textFile;
 		Scanner input = new Scanner(System.in);
@@ -21,13 +23,14 @@ public class FindAndReplace {
 		
 		textFile = new File("../Chapter11/src/SkillBuilders/" + filename + ".txt");
 		
-		
 		FileWriter out;
+		FileReader in;
 		BufferedWriter writeFile;
 		
 		try
 		{
 			out = new FileWriter(textFile);
+			in = new FileReader(textFile);
 			writeFile = new BufferedWriter(out);
 			System.out.println("Please enter a word or phrase: ");
 			String userPhrase = input.next();
@@ -36,6 +39,7 @@ public class FindAndReplace {
 		catch (IOException e)
 		{
 			System.out.println("Problem writting to the file!");
+			return;
 		}
 		
 		while (true) 
@@ -45,91 +49,55 @@ public class FindAndReplace {
 		
 		if(decideYorN.equals("Y"))
 		{
+			
+			System.out.println("Please enter what part of your word or phrase you would like to replace: ");
+			String searchPhrase = input.next();
+			
+			boolean foundWord = false;
+			
 			//Search word/phrase to replace
-			while (true)
+			try (BufferedReader line = new BufferedReader(in)) 
 			{
-				System.out.println("Please enter what part of your word or phrase you would like to replace: ");
-				String searchPhrase = input.next();
+				String currentLine;
 				
-				if(searchPhrase == userPhrase/*enter the part of the code that the searchPhrase has to match with*/)
+				while ((currentLine = line.readLine()) != null) 
 				{
-					System.out.println("Please enter another word or phrase");
-					replacePhrase = input.next();
-					break;
-				}
-				else if(searchPhrase != userPhrase/*enter the part of the code that the searchPhrase has to match with*/)
-				{
-					System.out.println("Not a word or phrase in the file, please try again.");
-				}
-			}
-			break;
-			
-			try 
-			{
-				Scanner textFileRead = new Scanner(textFile);
-				
-				while (textFileRead.hasNext()) 
-				{
-					String Word = textFileRead.next();
-					int Spaces = 0;
-					
-					Word = Word.replace('-', ' ');
-					
-					for (Character Char2 : Word.toCharArray()) 
+					if (currentLine.equals(searchPhrase)) 
 					{
-						if (Char2 == ' ') 
-						{
-							Spaces++;
-						}
+						foundWord = true;
+						break;
 					}
-					
-					System.out.println(Spaces);
-					
-					//Word = Word.replace('-', ' ');
-					System.out.print("word: " + Word + " | ");
-					
-					//boolean OnAWord = false;
-					
-					String validChars = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM \n";
-					
-					//for (Character Char : Word.toCharArray()) 
-				//{
-						//boolean isValid = false;
-						
-						for (Character Valid : validChars.toCharArray()) 
-						{
-							if (Char == Valid) 
-							{
-								isValid = true;
-								break;
-							}
-						}
-						
-						
-						if (Char == ' ' || Char == '\n')
-						{
-							OnAWord = false;
-						}
-
-						if (isValid) 
-						{
-							//I Edited this one
-							if (OnAWord == userPhrase) 
-							{
-								OnAWord = true;
-								writeFile.write(replacePhrase);
-								
-							}
-						}
-					}
-					
-					System.out.println(WordCount);
-			
-			}catch (IOexception e)
-			{
-				System.out.println("Th3ere was an issue");
+				}
 			}
 			
+			if (!foundWord) 
+			{
+				System.out.println("Not a word or phrase in the file, please try again.");
+				continue;
+			}
+			
+			System.out.println("Please enter another word or phrase to replace [" + searchPhrase + "]");
+			replacePhrase = input.next();
+			
+			String text = "";
+			
+			try (BufferedReader line = new BufferedReader(in)) 
+			{
+				String currentLine;
+				
+				while ((currentLine = line.readLine()) != null) 
+				{
+					currentLine = currentLine.replaceAll(searchPhrase, replacePhrase);
+					text = text + currentLine;
+				}
+			}
+			
+			try (BufferedWriter writer = new BufferedWriter(out)) 
+			{
+				writer.write(text);
+			}
+			
+			break;
 		}
 		else if (decideYorN.equals("N"))
 		{
