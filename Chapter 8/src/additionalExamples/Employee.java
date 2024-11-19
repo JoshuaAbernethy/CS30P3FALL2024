@@ -1,4 +1,4 @@
-package SkillBuilders;
+package additionalExamples;
 
 public abstract class Employee {
 

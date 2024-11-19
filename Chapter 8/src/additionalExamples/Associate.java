@@ -1,4 +1,4 @@
-package SkillBuilders;
+package additionalExamples;
 
 public class Associate extends Employee
 {
