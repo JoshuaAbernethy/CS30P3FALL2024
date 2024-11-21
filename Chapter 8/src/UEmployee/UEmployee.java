@@ -3,7 +3,7 @@ package UEmployee;
 public abstract class UEmployee 
 {
 	private String firstName, lastName;
-	private double salary;
+	protected double salary;
 	
 	public UEmployee(String fn, String ln, double s)
 	{
@@ -34,7 +34,7 @@ public abstract class UEmployee
 	}
 	public void setSalary(double s)
 	{
-		salary = s;;
+		salary = s;
 	}
 	
 	public String toString()
