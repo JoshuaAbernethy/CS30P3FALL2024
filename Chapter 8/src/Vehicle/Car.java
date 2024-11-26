@@ -16,7 +16,6 @@ public class Car extends Vehicle {
 	}
 	
 	public static void main(String[] args) {
-        // Now you create a valid Output object with all parameters
         Car user = new Car(13.5, 15, 5, 13.1);
         user.dispCarInfo();
     }
