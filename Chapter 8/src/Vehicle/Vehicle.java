@@ -2,7 +2,6 @@ package Vehicle;
 
 public abstract class Vehicle 
 {
-	
 	protected double fuelEconomyCity;
 	protected double fuelEconomyHwy;
 	protected double seatingCapacity;

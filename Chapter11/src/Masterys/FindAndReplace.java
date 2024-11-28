@@ -44,70 +44,69 @@ public class FindAndReplace {
 		
 		while (true) 
 		{
-		System.out.println("Would you like to replace your old phrase (Y) or (N);");
-		decideYorN = input.next().toUpperCase();
-		
-		if(decideYorN.equals("Y"))
-		{
+			System.out.println("Would you like to replace your old phrase (Y) or (N);");
+			decideYorN = input.next().toUpperCase();
 			
-			System.out.println("Please enter what part of your word or phrase you would like to replace: ");
-			String searchPhrase = input.next();
-			
-			boolean foundWord = false;
-			
-			//Search word/phrase to replace
-			try (BufferedReader line = new BufferedReader(in)) 
+			if(decideYorN.equals("Y"))
 			{
-				String currentLine;
+				System.out.println("Please enter what part of your word or phrase you would like to replace: ");
+				String searchPhrase = input.next();
 				
-				while ((currentLine = line.readLine()) != null) 
+				boolean foundWord = false;
+				
+				//Search word/phrase to replace
+				try (BufferedReader line = new BufferedReader(in)) 
 				{
-					if (currentLine.equals(searchPhrase)) 
+					String currentLine;
+					
+					while ((currentLine = line.readLine()) != null) 
 					{
-						foundWord = true;
-						break;
+						if (currentLine.equals(searchPhrase)) 
+						{
+							foundWord = true;
+							break;
+						}
 					}
 				}
-			}
-			
-			if (!foundWord) 
-			{
-				System.out.println("Not a word or phrase in the file, please try again.");
-				continue;
-			}
-			
-			System.out.println("Please enter another word or phrase to replace [" + searchPhrase + "]");
-			replacePhrase = input.next();
-			
-			String text = "";
-			
-			try (BufferedReader line = new BufferedReader(in)) 
-			{
-				String currentLine;
 				
-				while ((currentLine = line.readLine()) != null) 
+				if (!foundWord) 
 				{
-					currentLine = currentLine.replaceAll(searchPhrase, replacePhrase);
-					text = text + currentLine;
+					System.out.println("Not a word or phrase in the file, please try again.");
+					continue;
 				}
+				
+				System.out.println("Please enter another word or phrase to replace [" + searchPhrase + "]");
+				replacePhrase = input.next();
+				
+				String text = "";
+				
+				try (BufferedReader line = new BufferedReader(in)) 
+				{
+					String currentLine;
+					
+					while ((currentLine = line.readLine()) != null) 
+					{
+						currentLine = currentLine.replaceAll(searchPhrase, replacePhrase);
+						text = text + currentLine;
+					}
+				}
+				
+				try (BufferedWriter writer = new BufferedWriter(out)) 
+				{
+					writer.write(text);
+				}
+				
+				break;
 			}
-			
-			try (BufferedWriter writer = new BufferedWriter(out)) 
+			else if (decideYorN.equals("N"))
 			{
-				writer.write(text);
+				break;
 			}
 			
-			break;
-		}
-		else if (decideYorN.equals("N"))
-		{
-			break;
-		}
-		
-		else
-		{
-			System.out.println("Invalid Input, please try again.");
-		}
+			else
+			{
+				System.out.println("Invalid Input, please try again.");
+			}
 		}
 		
 		System.out.println("Here is the phrase within the file: " + textFile);
