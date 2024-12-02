@@ -1,35 +1,54 @@
 package Masterys;
 
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class MySavings {
 	private double total;
+	private static Path textFile = Path.of("../Chapter11/src/Masterys/BalanceMySavings.txt");
 	
 	public MySavings() {
 		total = 0;
 	}
 	
 	public double TotalMoney() {
-		return total;
-	}
-	
-	public double AddCoins(double coin) {
-		total += coin;
-		return total;
-	}
-	
-	public double TakeOut(double takeOut) {
-		total -= takeOut;
-		return total;
+		try {
+			total = Double.parseDouble(Files.readAllLines(textFile).get(0));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		return total;
+	}
+	
+	public double AddCoins(double coin) throws IOException {
+		total += coin;
+		
+		Files.writeString(textFile, "" + total);
+		
+		return total;
+	}
+	
+	public double TakeOut(double coin) throws IOException {
+		total -= coin;
+		
+		Files.writeString(textFile, "" + total);
+		
+		return total;
 	}
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-MySavings user = new MySavings();
+		MySavings user = new MySavings();
 		
 		double quarter, dime, nickel, penny, total, data;
 		
@@ -40,6 +59,7 @@ MySavings user = new MySavings();
 		dime = 0.10;
 		nickel = 0.05;
 		penny = 0.01;
+		
 		while (data != 0) {
 			System.out.println("1. Show total in bank. ");
 			
