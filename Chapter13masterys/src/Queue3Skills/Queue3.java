@@ -81,9 +81,4 @@ public class Queue3
 	 	front = -1;
 	 	rear = -1;
 	}
-	
-	public static void main(String[] args) 
-	{
-		System.out.println("Test");
-	}
 }

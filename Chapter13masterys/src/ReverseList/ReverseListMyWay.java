@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ReversList {
+import Queue3Skills.Queue3;
 
-	public static void main(String[] args)
+public class ReverseListMyWay extends Queue3 {
+
+	public static void stuff()
 	{
 		List<Double> userNums = new ArrayList<>();
 		Scanner user = new Scanner(System.in);
@@ -20,24 +22,25 @@ public class ReversList {
 			userNums.add(userNum);
 		}
 		
-		for (int i = 0; i < 10; i++) 
-		{
-			System.out.println("");
-		}
-		
-		System.out.println(userNums);
-		
 		for (int i = 0; i < userNums.size() / 2; i++) 
 		{
 			int lastArrow = (userNums.size() - 1) - i;
-			double lastNum = userNums.get(lastArrow);
-			double firstNum = userNums.get(i);
+			int lastNum = userNums.get(lastArrow);
+			int firstNum = userNums.get(i);
+			
+			Queue3
 			
 			userNums.set(i, lastNum);
 			userNums.set(lastArrow, firstNum);
 		}
 		
 		System.out.println(userNums);
+	}
+	
+	public static void main(String[] args) 
+	{
+		stuff();
 		
 	}
+
 }
