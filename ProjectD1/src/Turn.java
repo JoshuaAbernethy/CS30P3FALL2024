@@ -9,6 +9,7 @@ public class Turn {
         Net.addServer("", "192.168.100.1", 5661, "", 0);
 
         //Create
+        
         DCMotor leftMotors = new DCMotor();
         DCMotor rightMotors = new DCMotor();
 
@@ -17,24 +18,20 @@ public class Turn {
         rightMotors.setChannel(1);
 
         //Open
-        leftMotors.open(1000);
-        rightMotors.open(1000);
+        leftMotors.open(5000);
+        rightMotors.open(5000);
 
         //Turn in one direction
         leftMotors.setTargetVelocity(1);
-        rightMotors.setTargetVelocity(1);
+        rightMotors.setTargetVelocity(-1);
 
-        //Wait for 2 second
-        Thread.sleep(2000);
+        //How long the rovr will run for
+        Thread.sleep(810);
 
         //Stop motors
-        
-        leftMotors.open(5000);
-        rightMotors.open(5000);
-        
-        
-        leftMotors.setTargetVelocity(1);
-        rightMotors.setTargetVelocity(-1);
+        leftMotors.setTargetVelocity(0);
+        rightMotors.setTargetVelocity(0);
     }
 }
   
+ 
