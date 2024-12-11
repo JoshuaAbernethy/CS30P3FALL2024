@@ -22,15 +22,57 @@ public class Turn {
         rightMotors.open(5000);
 
         //Turn in one direction
+       
+        leftMotors.setTargetVelocity(1);
+        rightMotors.setTargetVelocity(1);
+
+        //How long the rovr will run for
+        Thread.sleep(2500);
+        
+        leftMotors.setTargetVelocity(0);
+        rightMotors.setTargetVelocity(0);
+
+        //How long the rovr will run for
+        Thread.sleep(1000);
+        
+        
+        
         leftMotors.setTargetVelocity(1);
         rightMotors.setTargetVelocity(-1);
 
         //How long the rovr will run for
-        Thread.sleep(810);
+        Thread.sleep(786);
 
         //Stop motors
         leftMotors.setTargetVelocity(0);
         rightMotors.setTargetVelocity(0);
+        
+        Thread.sleep(1000);
+        
+        leftMotors.setTargetVelocity(1);
+        rightMotors.setTargetVelocity(1);
+
+        //How long the rovr will run for
+        Thread.sleep(2500);
+        
+        leftMotors.setTargetVelocity(0);
+        rightMotors.setTargetVelocity(0);
+        
+        Thread.sleep(1000);
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+    
     }
 }
   
