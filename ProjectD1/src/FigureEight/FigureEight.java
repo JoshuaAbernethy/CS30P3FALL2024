@@ -32,10 +32,10 @@ public static void main(String[] args) throws Exception {
     rightMotors.setTargetVelocity(1);
 
     //Wait for 1 second
-    Thread.sleep(3000);
+    Thread.sleep(2900);
     
   
-    leftMotors.setTargetVelocity(0.9);
+    leftMotors.setTargetVelocity(0.90);
     rightMotors.setTargetVelocity(1);
     
     Thread.sleep(2000);
@@ -44,18 +44,18 @@ public static void main(String[] args) throws Exception {
     rightMotors.setTargetVelocity(0.4);
 
     //Wait for 1 second
-    Thread.sleep(2000);
+    Thread.sleep(1900);
     
     leftMotors.setTargetVelocity(1);
-    rightMotors.setTargetVelocity(0.95);
+    rightMotors.setTargetVelocity(0.88);
     
-    Thread.sleep(3000);
+    Thread.sleep(2000);
     
     leftMotors.setTargetVelocity(0.4);
     rightMotors.setTargetVelocity(1);
 
     //Wait for 1 second
-    Thread.sleep(2000);
+    Thread.sleep(1650);
     
     leftMotors.setTargetVelocity(0);
     rightMotors.setTargetVelocity(0);

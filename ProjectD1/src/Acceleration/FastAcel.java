@@ -33,51 +33,7 @@ public class FastAcel {
       rightMotors.setTargetVelocity(1);
 
       //Wait for 1 second
-      Thread.sleep(1800);
-      
-    
-      leftMotors.setTargetVelocity(0);
-      rightMotors.setTargetVelocity(1);
-      
-      Thread.sleep(505);
-      
-      leftMotors.setTargetVelocity(1);
-      rightMotors.setTargetVelocity(1);
+      Thread.sleep(5000);
 
-      //Wait for 1 second
-      Thread.sleep(1800);
-      
-      leftMotors.setTargetVelocity(0);
-      rightMotors.setTargetVelocity(1);
-      
-      Thread.sleep(505);
-      
-      leftMotors.setTargetVelocity(1);
-      rightMotors.setTargetVelocity(1);
-
-      //Wait for 1 second
-      Thread.sleep(1800);
-      
-      leftMotors.setTargetVelocity(0);
-      rightMotors.setTargetVelocity(1);
-      
-      Thread.sleep(505);
-      
-      leftMotors.setTargetVelocity(1);
-      rightMotors.setTargetVelocity(1);
-
-      //Wait for 1 second
-      Thread.sleep(1800);
-      
-      leftMotors.setTargetVelocity(0);
-      rightMotors.setTargetVelocity(1);
-      
-      Thread.sleep(7760);
-      
-      leftMotors.setTargetVelocity(0);
-      rightMotors.setTargetVelocity(0);
-      
-      
   }
 }
-
