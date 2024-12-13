@@ -30,18 +30,29 @@ public class AvoidObsticals {
           
           if (sonar.getDistance() < 200) {
               //Object detected! Stop motors
-              leftMotors.setTargetVelocity(0.25);
-              rightMotors.setTargetVelocity(0.25);
+  
+        	  
+        	  leftMotors.setTargetVelocity(0.5);
+              rightMotors.setTargetVelocity(0.5);
               Thread.sleep(1000);
               
-              leftMotors.setTargetVelocity(1);
-              rightMotors.setTargetVelocity(-1);
-              Thread.sleep((int) (10000 * Math.random() + 1000));
+        	  leftMotors.setTargetVelocity(0);
+              rightMotors.setTargetVelocity(0);
+              Thread.sleep(1000);
+              
+              leftMotors.setTargetVelocity(0.25);
+              rightMotors.setTargetVelocity(-0.25);
+              Thread.sleep((int) (6000 * Math.random() + 1000));
+             
+              leftMotors.setTargetVelocity(0);
+              rightMotors.setTargetVelocity(0);
+              Thread.sleep(500);
               
           } else {
+        	  
               //Move forward slowly (25% max speed)
-              leftMotors.setTargetVelocity(-0.25);
-              rightMotors.setTargetVelocity(-0.25);
+              leftMotors.setTargetVelocity(-0.35);
+              rightMotors.setTargetVelocity(-0.35);
           }
 
           //Wait for 250milliseconds
