@@ -1,3 +1,17 @@
+/*
+
+Program: FindandReplace         Last Date of this Revision: October 4, 2024
+
+Purpose: To create a program that asks uses to enter word/phrase that is stored in a file. The user must then
+enter a word or phrase that they entered earlier and replace it with a new one.
+
+Author: Joshua Abernethy
+School: CHHS
+Course: Computer Programming 30
+ 
+
+*/
+
 package Masterys;
 
 import java.io.BufferedReader;
