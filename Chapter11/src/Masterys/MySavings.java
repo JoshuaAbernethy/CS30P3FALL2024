@@ -1,3 +1,16 @@
+/*
+
+Program: FindandReplace         Last Date of this Revision: October 4, 2024
+
+Purpose: The WordCount application 
+
+Author: Joshua Abernethy
+School: CHHS
+Course: Computer Programming 30
+ 
+
+*/
+
 package Masterys;
 
 import java.io.IOException;

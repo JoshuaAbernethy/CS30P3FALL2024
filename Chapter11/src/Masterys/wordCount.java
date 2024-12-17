@@ -1,3 +1,15 @@
+/*
+
+Program: FindandReplace         Last Date of this Revision: October 4, 2024
+
+Purpose: The WordCount application reads everything within a file and display's the number of words within the file. It then determines the length of all the words.
+
+Author: Joshua Abernethy
+School: CHHS
+Course: Computer Programming 30
+ 
+
+*/
 package Masterys;
 import java.io.*;
 import java.util.Scanner;
@@ -96,3 +108,40 @@ public class wordCount {
 		
 
 }
+
+/*
+ 0
+word: 1 | 0
+0
+word: 2 | 0
+0
+word: 3 | 0
+0
+word: 4 | 0
+0
+word: 5 | 0
+0
+word: There | 1
+0
+word: are | 2
+0
+word: 5 | 2
+0
+word: (five) | 3
+0
+word: days | 4
+0
+word: In | 5
+0
+word: the | 6
+0
+word: week! | 7
+0
+word: %*$*$&%&* | 7
+Word Count: 7
+Length of words is a total of 25 characters!
+ 
+ 
+ 
+ 
+ */
