@@ -2,7 +2,8 @@
 
 Program: FindandReplace         Last Date of this Revision: October 4, 2024
 
-Purpose: The WordCount application 
+Purpose: The MySavings application asks the user to enter a series of actions (numbers 1 through 6 result in different actions). For adding money the corresponding value to the number the user
+inputs results in it being added to a file. When the action number 1 is selected (show total in bank), the value within the file is retreived and output to the user. 
 
 Author: Joshua Abernethy
 School: CHHS
@@ -139,5 +140,62 @@ public class MySavings {
 
 
 	}
+
+/*
+1. Show total in bank. 
+2. Add penny. 
+3. Add nickel. 
+4. Add dime. 
+5. Add quarter. 
+6. Take money out of bank. 
+Enter 0 to quit. 
+Enter your choice 1
+Your total is: $0.00
+1. Show total in bank. 
+2. Add penny. 
+3. Add nickel. 
+4. Add dime. 
+5. Add quarter. 
+6. Take money out of bank. 
+Enter 0 to quit. 
+Enter your choice 2
+Your total is: $0.01
+1. Show total in bank. 
+2. Add penny. 
+3. Add nickel. 
+4. Add dime. 
+5. Add quarter. 
+6. Take money out of bank. 
+Enter 0 to quit. 
+Enter your choice 5
+Your total is: $0.26
+1. Show total in bank. 
+2. Add penny. 
+3. Add nickel. 
+4. Add dime. 
+5. Add quarter. 
+6. Take money out of bank. 
+Enter 0 to quit. 
+Enter your choice 6
+How much would you want to take out: 0.23
+1. Show total in bank. 
+2. Add penny. 
+3. Add nickel. 
+4. Add dime. 
+5. Add quarter. 
+6. Take money out of bank. 
+Enter 0 to quit. 
+Enter your choice 1
+Your total is: $0.03
+1. Show total in bank. 
+2. Add penny. 
+3. Add nickel. 
+4. Add dime. 
+5. Add quarter. 
+6. Take money out of bank. 
+Enter 0 to quit. 
+Enter your choice  
+
+ */
 
 

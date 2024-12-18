@@ -1,6 +1,6 @@
 /*
 
-Program: FindandReplace         Last Date of this Revision: October 4, 2024
+Program: WordCount         Last Date of this Revision: October 4, 2024
 
 Purpose: The WordCount application reads everything within a file and display's the number of words within the file. It then determines the length of all the words.
 
