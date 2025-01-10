@@ -14,7 +14,7 @@ public class Account {
 		cust = new Customer(fName, lName);//this constructor should reflect the new additions above, street, city, province, postal code
 		acctID = fName.substring(0,1) + lName;
 	}
-	
+	//
 	public Account(String ID) {
 		balance = 0;
 		cust = new Customer("", "");
