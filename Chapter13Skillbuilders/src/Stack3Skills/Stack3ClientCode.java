@@ -11,7 +11,7 @@ public class Stack3ClientCode {
         stack.push("Hello, world!");  // String object
         stack.push(42);               // Integer object
         stack.push(3.14);             // Double object
-
+//
         // Peek at the top of the stack
         System.out.println("Top of the stack: " + stack.top());  // Should print 3.14
 

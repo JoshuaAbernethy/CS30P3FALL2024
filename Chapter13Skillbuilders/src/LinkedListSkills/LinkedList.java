@@ -8,7 +8,7 @@ public class LinkedList
 	
 	public LinkedList() 
 	{
-		head = null;
+		head = null;//
 	}
 	
 	public void addAtFront(String str) 

@@ -12,7 +12,7 @@ public class Stack3
 		data = new ArrayList<Object>();
 		top = -1;
 	}
-	
+	//
 	public Object top()
 	{
 		return(data.get(top));

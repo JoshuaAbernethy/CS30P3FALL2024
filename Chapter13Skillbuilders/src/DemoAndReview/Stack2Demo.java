@@ -7,7 +7,7 @@ public class Stack2Demo
 	public Stack2Demo(int i) {
 		// TODO Auto-generated constructor stub
 	}
-
+//
 	public static void main(String[] args) 
 	{
 		Stack2Demo s2 = new Stack2Demo(4);

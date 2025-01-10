@@ -9,7 +9,7 @@ public class Queue2
 	{
 		data = new Object[maxItems];
 		front = -1;		//no items in the array
-		rear = -1;
+		rear = -1;//
 		maxSize = maxItems;
 	}
 	

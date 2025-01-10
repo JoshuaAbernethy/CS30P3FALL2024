@@ -10,7 +10,7 @@ public class Stack2
 		data = new Object[maxItems];
 		top = -1;
 		
-	}
+	}//
 	
 	public Object top()
 	{

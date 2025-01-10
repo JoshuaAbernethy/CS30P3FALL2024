@@ -13,7 +13,7 @@ public class Queue3
 		front = -1;		//no items in the array
 		rear = -1;
 	}
-	
+	//
 	public Object front() 
 	{
 	 	return(data.get(front));

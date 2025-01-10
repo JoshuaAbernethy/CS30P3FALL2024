@@ -8,5 +8,5 @@ public class ArraysReview {
 		
 		System.out.println("The best freind is " + freinds[2]);
 	}
-
+//
 }
