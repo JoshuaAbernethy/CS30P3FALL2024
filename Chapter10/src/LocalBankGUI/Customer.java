@@ -7,7 +7,7 @@ public class Customer
 	
 	public Customer(String fName, String lName) 
 	{
-		firstName = fName;
+		firstName = fName;//
 		lastName = lName;
 	}
 

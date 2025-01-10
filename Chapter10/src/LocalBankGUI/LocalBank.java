@@ -24,7 +24,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-public class LocalBank {
+public class LocalBank {//
 	
 	/*
 	 * 1. When Complete Trans is pressed

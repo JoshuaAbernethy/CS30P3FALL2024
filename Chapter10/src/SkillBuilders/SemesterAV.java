@@ -23,7 +23,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class SemesterAV {
-
+//
 	protected static final JLabel DispAVG = null;
 	private JFrame frame;
 	private JTextField EnterGR2;

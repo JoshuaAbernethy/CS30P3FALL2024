@@ -26,7 +26,7 @@ public class LocalBank {
 	private JTextField txtFirstName;
 	private JTextField txtLastName;
 	private JTextField txtBalance;
-	
+	//
 	Bank easySave = new Bank();
 
 	/**

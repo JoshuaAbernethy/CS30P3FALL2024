@@ -7,7 +7,7 @@ import LocalBankGUI.*;
 public class Bank 
 {
 	private ArrayList<Account> accounts;
-		
+		//
 	
 	
 	public Bank() //Constructor Method

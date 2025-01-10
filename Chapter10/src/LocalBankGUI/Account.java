@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import LocalBankGUI.LocalBank.TextFieldSetup;
 
-public class Account 
+public class Account //
 {
 	public static class NewAccount 
 	{

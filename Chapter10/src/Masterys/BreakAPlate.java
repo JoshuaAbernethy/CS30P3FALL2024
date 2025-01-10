@@ -26,7 +26,7 @@ import java.lang.*;
 public class BreakAPlate {
 
 	private JFrame frame;
-
+//
 	/**
 	 * Launch the application.
 	 */

@@ -6,7 +6,7 @@ import javax.swing.JComboBox;
 import java.lang.reflect.Array;
 import LocalBankGUI.Account;
 
-public class Bank 
+public class Bank //
 {
 	public static void ChangeBalance(int AccountNumber, JComboBox Selection, double Amount) 
 	{

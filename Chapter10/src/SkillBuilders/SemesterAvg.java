@@ -19,7 +19,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class SemesterAvg {
-
+//
 	private JFrame frame;
 	//private JTextField SemesterInput_2_1;
 	private JTextField SemesterInput_2;

@@ -18,7 +18,7 @@ public class MyMetricConverter {
 
 	//protected static final String  = null;
 	private JFrame frame;
-
+//
 	/**
 	 * Launch the application.
 	 */
