@@ -15,7 +15,7 @@ public class Disk extends Circle
 	{
 	 	thickness = newThickness;
 	}
-	
+	//
 	public double getThickness() 
 	{
 	 	return(thickness);

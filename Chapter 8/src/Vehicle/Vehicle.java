@@ -33,7 +33,7 @@ public abstract class Vehicle
 	public void setFuelEconomyCity(double fec)
 	{
 		fuelEconomyCity = fec;
-	}
+	}//
 	public void setFuelEconomyHwy(double feh)
 	{
 		fuelEconomyHwy = feh;

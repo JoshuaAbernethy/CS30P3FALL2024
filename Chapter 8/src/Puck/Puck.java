@@ -19,7 +19,7 @@ public class Puck extends Disk
 			standard = true;
 			youth = false;
 		}
-		else
+		else//
 		{
 			standard = false;
 			youth = true;

@@ -18,6 +18,6 @@ public class Truck extends Vehicle {
         // Now you create a valid Output object with all parameters
        Truck user1 = new Truck(18, 20, 5, 100);
        user1.dispTruckInfo();
-    }
+    }//
 
 }

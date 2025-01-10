@@ -24,7 +24,7 @@ public class Output extends Faculty {
         // Call method to display the user information
         user.displayUserInfo();
     }
-}
+}//
 
 
 

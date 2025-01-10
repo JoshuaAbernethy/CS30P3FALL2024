@@ -31,4 +31,4 @@ public class ClientCode extends Vehicle
 		Minivan user2 = new Minivan(18, 20, 5, 100);
 		user2.dispMinivanInfo();
 	}
-}
+}//

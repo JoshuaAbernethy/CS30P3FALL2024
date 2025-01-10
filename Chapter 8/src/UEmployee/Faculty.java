@@ -26,6 +26,6 @@ public class Faculty extends UEmployee {
 				+ super.getLastName()
 				+ super.getSalary()
 				+ departTitle);
-	}
+	}//
 	
 }

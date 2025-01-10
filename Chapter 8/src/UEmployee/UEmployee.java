@@ -31,7 +31,7 @@ public abstract class UEmployee
 	public void setLastName(String ln)
 	{
 		lastName = ln;
-	}
+	}//
 	public void setSalary(double s)
 	{
 		salary = s;
