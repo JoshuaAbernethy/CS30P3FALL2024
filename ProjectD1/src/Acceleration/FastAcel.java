@@ -18,7 +18,7 @@ public class FastAcel {
       leftMotors.setHubPort(5);
       leftMotors.setChannel(0);
       rightMotors.setHubPort(5);
-      rightMotors.setChannel(1);
+      rightMotors.setChannel(1);//
 
       //Open
       leftMotors.open(5000);

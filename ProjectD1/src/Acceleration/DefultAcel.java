@@ -18,7 +18,7 @@ public class DefultAcel {
         leftMotors.setChannel(0);
         rightMotors.setChannel(1);
 
-        //Open
+        //Open//
         leftMotors.open(5000);
         rightMotors.open(5000);
 

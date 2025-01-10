@@ -22,7 +22,7 @@ public class AvoidObsticals {
       //Open
       leftMotors.open(5000);
       rightMotors.open(5000);
-      sonar.open(5000);
+      sonar.open(5000);//
 
       while (true) {
 

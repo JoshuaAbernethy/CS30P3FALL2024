@@ -18,7 +18,7 @@ public class Turn {
         rightMotors.setChannel(1);
 
         //Open
-        leftMotors.open(5000);
+        leftMotors.open(5000);//
         rightMotors.open(5000);
 
         //Turn in one direction
