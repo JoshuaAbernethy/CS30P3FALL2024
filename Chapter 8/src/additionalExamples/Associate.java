@@ -3,7 +3,7 @@ package additionalExamples;
 public class Associate extends Employee
 {
 	private double hourlyPayRate;
-	
+	//
 	
 	//
 	public Associate(String fn, String ln, double rate)

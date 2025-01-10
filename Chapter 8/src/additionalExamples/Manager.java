@@ -9,7 +9,7 @@ public class Manager extends Employee
 	{
 		super(fN, lN);
 		yearlySalary = s;
-	}
+	}//
 	public double getYearlySalary()
 	{
 		return yearlySalary;

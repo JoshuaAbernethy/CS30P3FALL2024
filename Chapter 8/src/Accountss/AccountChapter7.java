@@ -10,7 +10,7 @@ public class AccountChapter7 {
 	}
 	public double getBalance() {
 		return (balance);
-	}
+	}//
 	public void deposit(double amt) {
 		balance += amt;
 	}

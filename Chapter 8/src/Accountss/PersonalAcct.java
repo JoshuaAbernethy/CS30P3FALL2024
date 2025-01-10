@@ -7,7 +7,7 @@ public class PersonalAcct extends Account{
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	//
 	double minBalance = 99;
 	double fee = 2;
 	double currentUserBal = minBalance;

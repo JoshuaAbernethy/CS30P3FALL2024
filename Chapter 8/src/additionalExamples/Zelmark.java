@@ -10,7 +10,7 @@ public class Zelmark {
 	String response;
 	pay = emp.pay(payArg);
 	System.out.println(money.format(pay));
-	
+	//
 	public static void main(String[] args)
 	{//
 		Manager emp 1 = new Manager("Yoki, ");

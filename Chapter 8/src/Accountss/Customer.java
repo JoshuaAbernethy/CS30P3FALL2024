@@ -7,7 +7,7 @@ public class Customer {
 	{
 		firstName = fName;
 		lastName = lName;
-	}
+	}//
 	
 	public String toString() {
 		String custString;

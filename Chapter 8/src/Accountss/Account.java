@@ -6,7 +6,7 @@ public class Account {
 	private Customer cust;
 	private String acctID;
 	
-		
+		//
 
 	public Account(double bal, String fName, String lName)//include street, city, province or state, postal code or zip code
 	 {
