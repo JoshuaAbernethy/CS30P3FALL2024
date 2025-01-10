@@ -27,7 +27,7 @@ public class StatsP1 {
 		{
 			in = new FileReader(textFile);
 			readFile = new BufferedReader(in);
-			
+			//
 			while((stuName = readFile.readlLine()) !=null()) 
 			{
 				score = readFile.readLine();

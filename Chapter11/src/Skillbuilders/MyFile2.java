@@ -36,7 +36,7 @@ public class MyFile2 {
 					System.out.println("File Deleted!");
 				}
 				
-			}
+			}//
 			else if (response.equals("k")) 
 			{
 				System.out.println("Keeping the file");
