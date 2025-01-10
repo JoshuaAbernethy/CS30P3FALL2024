@@ -6,7 +6,7 @@ public class Queue3
 {
 	private ArrayList<Object> data;
 	private int front, rear;
-	
+	//
 	public Queue3()
 	{
 		data = new ArrayList<Object>();

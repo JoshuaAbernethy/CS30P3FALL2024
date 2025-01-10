@@ -11,7 +11,7 @@ public class SortList
 		for (int x = 0; x < 20; x++) 
 		{
 			System.out.println("");
-		}
+		}//
 		
 		Scanner User = new Scanner(System.in);
 		int[] Numbers = {1,2,3,4,5,6,0,0,0,0};

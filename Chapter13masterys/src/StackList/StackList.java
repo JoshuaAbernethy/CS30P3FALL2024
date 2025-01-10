@@ -8,7 +8,7 @@ package StackList;
 
 	 private int[] array;
 	 
-	
+	//
 	 private int top;
 	 
 
