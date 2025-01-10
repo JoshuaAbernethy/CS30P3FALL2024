@@ -11,6 +11,6 @@ public class RandomPrint {
 			FullMessage += Mes;
 		}
 		
-		System.out.println(FullMessage);
+		System.out.println(FullMessage);//
 	}
 }

@@ -55,7 +55,7 @@ public class MySavings {
 		
 		Files.writeString(textFile, "" + total);
 		
-		return total;
+		return total;//
 	}
 	
 
